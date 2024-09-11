@@ -1,0 +1,5 @@
+- name: Configuring Tools 
+  become: true  
+  hosts: all
+  roles:
+    - role: "{{tool_name}}"
