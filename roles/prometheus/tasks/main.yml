@@ -1,5 +1,5 @@
 - name: Configuring Host name 
-  ansible.builtin.shell: set-hostname prometheus
+  ansible.builtin.shell: set-hostname {{tool_name}}
 
 - name: Creating {{app_user}}
   ansible.builtin.user:
