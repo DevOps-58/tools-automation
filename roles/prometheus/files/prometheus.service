@@ -1,0 +1,12 @@
+[Unit]
+Description = Prometheus Service
+
+[Service]
+User=prometheus
+WorkingDirectory=/opt/prometheus-2.54.1.linux-amd64
+ExecStart=/opt/prometheus-2.54.1.linux-amd64/prometheus
+SyslogIdentifier=prometheus
+
+
+[Install]
+WantedBy=multi-user.target
