@@ -11,5 +11,5 @@
     dest: /opt
     remote_src: yes
     owner: "{{app_user}}" 
-    group: "{{app_user}}" 
+    group: "{{app_user}}"
 
