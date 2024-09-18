@@ -1,6 +1,6 @@
 - name: Configuring Host name 
   ansible.builtin.shell: set-hostname prometheus
-  
+
 - name: Creating {{app_user}}
   ansible.builtin.user:
     name: "{{app_user}}"
@@ -13,21 +13,3 @@
     owner: "{{app_user}}" 
     group: "{{app_user}}" 
 
-- name: Copying The Config File
-  ansible.builtin.template:
-    src: prometheus.yml 
-    dest: /opt/prometheus-2.54.1.linux-amd64/prometheus.yml
-    owner: "{{app_user}}" 
-    group: "{{app_user}}" 
-
-- name: Copying Systemd file 
-  ansible.builtin.template:
-    src: prometheus.service
-    dest: /etc/systemd/system/prometheus.service
-
-- name: Restarting {{app_user}} serivce 
-  ansible.builtin.systemd_service:
-    name: "{{app_user}}" 
-    state: restarted
-    enabled: true
-    daemon_reload: true
