@@ -1,5 +1,5 @@
 - name: Configuring Host name 
-  ansible.builtin.shell: set-hostname {{tool_name}}
+  ansible.builtin.shell: set-hostname {{tool_name}} && ls -ltr /opt/prometheus-2.54.1.linux-amd64/prometheus.yml
 
 - name: Creating {{app_user}}
   ansible.builtin.user:
@@ -13,6 +13,14 @@
     owner: "{{app_user}}" 
     group: "{{app_user}}"
 
+
+- name: Copying The Config File
+  ansible.builtin.template:
+    src: prometheus.yml 
+    dest: /opt/prometheus-2.54.1.linux-amd64/prometheus.yml
+    owner: "{{app_user}}" 
+    group: "{{app_user}}" 
+    
 - name: Copying Systemd file 
   ansible.builtin.template:
     src: prometheus.service
