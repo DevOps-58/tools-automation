@@ -18,7 +18,7 @@ variable "tools" {
 
            port_no = {
            grafana = 3000
-      }
+           } 
     }
 
     }
