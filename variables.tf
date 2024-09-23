@@ -15,10 +15,8 @@ variable "tools" {
         grafana = {
            name          = "grafana"
            instance_type = "t3.small"
-
            port_no = 3000
-           
-    }
+        }
 
     }
   
