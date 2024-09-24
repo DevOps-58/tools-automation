@@ -1,5 +1,5 @@
 - name: Configuring Host name 
-  ansible.builtin.shell: set-hostname {{tool_name}} && ls -ltr /opt/prometheus-2.54.1.linux-amd64/prometheus.yml
+  ansible.builtin.shell: set-hostname {{tool_name}} #&& ls -ltr /opt/prometheus-2.54.1.linux-amd64/prometheus.yml
 
 - name: Creating {{app_user}}
   ansible.builtin.user:
