@@ -5,13 +5,13 @@
   ansible.builtin.user:
     name: "{{app_user}}"
 
-# - name: Downloading and extracting the package
-#   ansible.builtin.unarchive:
-#     src: https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz
-#     dest: /opt
-#     remote_src: yes
-#     owner: "{{app_user}}" 
-#     group: "{{app_user}}"
+- name: Downloading and extracting the package
+  ansible.builtin.unarchive:
+    src: https://github.com/prometheus/prometheus/releases/download/v2.54.1/prometheus-2.54.1.linux-amd64.tar.gz
+    dest: /opt
+    remote_src: yes
+    owner: "{{app_user}}" 
+    group: "{{app_user}}"
 
 
 # - name: Copying The Config File
