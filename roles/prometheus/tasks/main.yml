@@ -14,12 +14,12 @@
     group: "{{app_user}}"
 
 
-# - name: Copying The Config File
-#   ansible.builtin.template:
-#     src: prometheus.yml 
-#     dest: /opt/prometheus-2.54.1.linux-amd64/prometheus.yml
-#     owner: "{{app_user}}" 
-#     group: "{{app_user}}" 
+- name: Copying The Config File
+  ansible.builtin.template:
+    src: prometheus.yml 
+    dest: /opt/prometheus-2.54.1.linux-amd64/prometheus.yml
+    owner: "{{app_user}}" 
+    group: "{{app_user}}" 
     
 - name: Copying Systemd file 
   ansible.builtin.template:
