@@ -25,6 +25,16 @@ variable "tools" {
       }
     }
 
+    elk = {
+      name          = "elk"
+      instance_type = "r7a.large"
+
+      port_no = {
+        kibana   = 80
+        logstash = 5044
+      }
+    }
+
 
   }
 }
