@@ -1,0 +1,27 @@
+- name: Configuring Host name 
+  ansible.builtin.shell: set-hostname {{tool_name}}
+
+- name: Configuring the repo
+  ansible.builtin.template:
+    src: elastic.repo
+    dest: /etc/yum.repos.d/elastic.repo
+
+- name: Installing ELK Stack
+  ansible.builtin.dnf:
+    name: 
+      - elasticsearch
+      - kibana 
+      - logstash 
+      - nginx 
+    state: installed
+
+- name: Starting ELK Services
+  ansible.builtin.systemd_service:
+    name: "{{ item }}"
+    state: restarted
+    enabled: true
+  loop: 
+    - elasticsearch
+    - kibana 
+    - logstash 
+    - nginx 
